@@ -97,6 +97,20 @@ let mantecaBollito = (a) => {
     return objReceta.manteca / a;
 }
 
+const ingredientesBollito = [
+    harina0000Bollito,
+    aguaBollito,
+    levaduraBollito,
+    harina0000Bollito,
+    lechePolvoBollito,
+    azucarBollito,
+    salBollito,
+    papaBollito,
+    mantecaBollito
+]
+
+let ingredientesBollitoLength = ingredientesBollito.length;
+
 /* Ingredientes necesarios en total */
 
 let harina000Necesaria = (a) => {
@@ -152,17 +166,11 @@ calcularButton.addEventListener('click', () => {
     ingredientesContainer.style.display = 'block';
 
     gramosBollitos(pesoPancitos.value);
-
     cantidadBollitos(gramosBollitos(pesoPancitos.value));
-    harina000Bollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    aguaBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    levaduraBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    harina0000Bollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    lechePolvoBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    azucarBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    salBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    papaBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
-    mantecaBollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)));
+
+    for (let i = 0; i < ingredientesBollitoLength; i++) {
+        ingredientesBollito[i](cantidadBollitos(gramosBollitos(pesoPancitos.value)))
+    }
 
     const ingredientesNecesarios = [
         harina000Necesaria(harina000Bollito(cantidadBollitos(gramosBollitos(pesoPancitos.value)))),
